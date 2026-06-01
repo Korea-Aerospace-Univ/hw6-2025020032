@@ -2,41 +2,41 @@
 
 int main(void) 
 {
-    char ch[10]={};     
-    char *p=nullptr;
-    char *q=nullptr;     
+    char ch[10]={};     // 10개 문자를 저장할 문자형 배열 선언 및 초기화 
+    char *p=nullptr;    // 배열을 탐색할때 사용할 문자형 포인터 변수 선언 및 초기화 
+    char *q=nullptr;     // 배열을 탐색할때 사용할 문자형 포인터 변수 선언 및 초기화 
 
    
     
-    for (p=ch;p<ch+10;p++) {
-        scanf("%c",p); 
+    for (p=ch;p<ch+10;p++) {// 포인터 p가 배열 ch의 첫번째 원소부터 마지막 원소까지 이동
+        scanf("%c",p); // 포인터 p가 가리키는 메모리 주소에 문자를 하나씩 입력받아 저장
     }
 
-  
-    char maxChar=*ch;  
-    int maxCount=0;    
+                        // 가장 많이 나온 문자와 그 횟수를 저장할 변수 선언및 초기화
+    char maxChar=*ch;  // 배열의 첫번째 문자를 가장 많이 나온 문자로 설정
+    int maxCount=0;    // 최대로 나오는 횟수를 선언하고 0으로 초기화
 
    
-    for (p=ch;p<ch+10;p++) {
-                                    
-        int count=0;   
+    for (p=ch;p<ch+10;p++) {//배열을 돌며 각 문자의 횟수를 세기
+                        // 외부 반복문 (p): 기준이 되는 문자를 하나씩 선택
+        int count=0;   // 현재 기준 문자(*p)가 몇 번 나왔는지 셀 변수(매번 0으로 초기화)
 
                                             
-        for(q=ch;q<ch+10;q++) { 
-            if (*p==*q) {  
-                count++;    
+        for(q=ch;q<ch+10;q++) { // 내부 반복문 (q): 기준 문자(*p)를 배열의 모든 문자(*q)와 처음부터 끝까지 비교
+            if (*p==*q) {  //기준 문자와 비교 대상 문자가 같으면
+                count++;     //횟수를 1 증가시킴
             }
         }
 
         
-        if (count>maxCount) {    
-            maxCount=count;
-            maxChar=*p;     
+        if (count>maxCount) {     // 최대 횟수 갱신, 현재 기준 문자의 횟수count가 지금까지의 최대 횟수(maxCount)보다 크다면
+            maxCount=count; // 최대 횟수를 현재 횟수로 갱신
+            maxChar=*p;     // 가장 많이 나온 문자를 현재 기준 문자로 갱신
         }
         
     }
 
-    printf("%c %d\n",maxChar,maxCount); 
+    printf("%c %d\n",maxChar,maxCount); // 가장 많이 나온 문자와 횟수를 공백으로 구분하여 출력
 
-    return 0; 
-}   
+    return 0; // 프로그램 종료
+}
