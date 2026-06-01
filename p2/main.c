@@ -2,27 +2,26 @@
 
 int main(void)
 {
-    int N;
-    int arr1[20]={};
-    int arr2[20]={};
-    int *p1=nullptr;
-    int *p2=nullptr;
+    int N; //정수형변수 N 선언
+    int arr1[20]={}; //최대 크기 20인 정수형 배열 선언 및 초기화 
+    int arr2[20]={}; // 최대 크기 20인 정수형 배열 선언 및 초기화 
+    int *p1=nullptr; //포인터 변수 선언 및 초기화 
+    int *p2=nullptr; // 포인터 변수 선언 및 초기화 
     
-    scanf("%d",&N);
-    for(p1=arr1;p1<arr1+N;p1++){
-        scanf("%d",p1);
+    scanf("%d",&N); //n개 입력받기
+    for(p1=arr1;p1<arr1+N;p1++){ // p1이 arr1의 첫번째 원소부터 N번째 원소 직전까지 값 저장
+        scanf("%d",p1); //첫번째 배열(arr1)에 N개의 정수를 입력받기
     }
     
-    for(p2=arr2;p2<arr2+N;p2++){
-        scanf("%d",p2);
+    for(p2=arr2;p2<arr2+N;p2++){ //p2가 arr2의 첫번째 원소부터 N번째 원소 직전까지 값을 저장
+        scanf("%d",p2);//두번째 배열(arr2)에 N개의 정수를 입력받기
     }
     
-    for (p1=arr1,p2=arr2+N-1;p1<arr1+N ;p1++,p2--){
-        printf(" %d",*p1 +*p2);
-    }
+    for (p1=arr1,p2=arr2+N-1;p1<arr1+N ;p1++,p2--){  //두 배열의 값을 양끝에서부터 교차하여 더한 후 출력, p1은 arr1의 첫번째 원소(arr1)부터 시작하여 오른쪽으로 이동 (p1++), p2는 arr2의 마지막 원소(arr2+N-1)부터 시작하여 왼쪽으로 이동 (p2--)
+        printf(" %d",*p1 +*p2);  // 두 포인터가 가리키는 주소의 값을 더해서 출력
+    }                           
     
 
-    return 0;
+    return 0; // 프로그램 종료
 }
-    
  
